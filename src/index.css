@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --da-primary: #0D9488;
+  --da-primary-hover: #0F766E;
+  --da-bg: #FFFFFF;
+  --da-surface: #F8FFFE;
+  --da-text: #1E293B;
+}
+
+.dark {
+  --da-bg: #111827;
+  --da-surface: #1F2937;
+  --da-text: #F1F5F9;
+}
+
 html {
   scroll-behavior: smooth;
   -webkit-tap-highlight-color: transparent;

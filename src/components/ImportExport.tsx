@@ -73,15 +73,15 @@ export default function ImportExport({ decks, onImportDeck, onNavigate }: Props)
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
       <h1 className="text-3xl font-extrabold text-gray-900 dark:text-white mb-2">
-        Import & <span className="italic text-flash-gold">Export</span>
+        Import & <span className="italic text-da-primary">Export</span>
       </h1>
       <p className="text-gray-500 dark:text-gray-400 mb-8">Manage your flashcard data</p>
 
       <div className="grid sm:grid-cols-2 gap-6">
         <div className="p-6 bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700">
           <div className="flex items-center gap-3 mb-4">
-            <div className="p-2 bg-flash-gold/10 rounded-xl">
-              <FiUpload className="w-5 h-5 text-flash-gold" />
+            <div className="p-2 bg-da-primary/10 rounded-xl">
+              <FiUpload className="w-5 h-5 text-da-primary" />
             </div>
             <h2 className="text-lg font-bold text-gray-900 dark:text-white">Import</h2>
           </div>
@@ -99,7 +99,7 @@ export default function ImportExport({ decks, onImportDeck, onNavigate }: Props)
                 onChange={handleFileImport}
                 className="hidden"
               />
-              <div className="flex items-center justify-center gap-2 px-4 py-3 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl hover:border-flash-gold/50 transition-colors text-gray-500 dark:text-gray-400">
+              <div className="flex items-center justify-center gap-2 px-4 py-3 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl hover:border-da-primary/50 transition-colors text-gray-500 dark:text-gray-400">
                 <FiFile className="w-4 h-4" />
                 <span className="text-sm font-medium">Choose file (.json, .csv)</span>
               </div>

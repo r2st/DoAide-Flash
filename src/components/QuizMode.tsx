@@ -67,7 +67,7 @@ export default function QuizMode({ deck, onNavigate, onRecordQuiz }: Props) {
     return (
       <div className="max-w-5xl mx-auto px-4 py-8 text-center">
         <p className="text-xl text-gray-500 dark:text-gray-400">Need at least 4 cards for quiz mode.</p>
-        <button onClick={() => onNavigate('deck', deck.id)} className="mt-4 text-flash-gold hover:text-flash-gold-dark font-semibold">
+        <button onClick={() => onNavigate('deck', deck.id)} className="mt-4 text-da-primary hover:text-da-primary-hover font-semibold">
           Back to deck
         </button>
       </div>
@@ -83,14 +83,14 @@ export default function QuizMode({ deck, onNavigate, onRecordQuiz }: Props) {
         <p className="text-gray-500 dark:text-gray-400 mb-8">{deck.title}</p>
 
         <div className="inline-block p-8 bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 mb-8">
-          <p className="text-5xl font-extrabold text-flash-gold">{pct}%</p>
+          <p className="text-5xl font-extrabold text-da-primary">{pct}%</p>
           <p className="text-gray-500 dark:text-gray-400 mt-1">{score} of {questions.length} correct</p>
         </div>
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <button
             onClick={restart}
-            className="flex items-center justify-center gap-2 px-6 py-3 bg-flash-gold text-gray-900 font-semibold rounded-xl hover:bg-flash-gold-dark transition-colors"
+            className="flex items-center justify-center gap-2 px-6 py-3 bg-da-primary text-white font-semibold rounded-xl hover:bg-da-primary-hover transition-colors"
           >
             <FiRotateCw className="w-4 h-4" /> Try Again
           </button>
@@ -113,7 +113,7 @@ export default function QuizMode({ deck, onNavigate, onRecordQuiz }: Props) {
       <div className="flex items-center justify-between mb-6">
         <button
           onClick={() => onNavigate('deck', deck.id)}
-          className="flex items-center gap-2 text-gray-500 dark:text-gray-400 hover:text-flash-gold transition-colors"
+          className="flex items-center gap-2 text-gray-500 dark:text-gray-400 hover:text-da-primary transition-colors"
         >
           <FiArrowLeft className="w-4 h-4" /> Exit
         </button>
@@ -123,16 +123,16 @@ export default function QuizMode({ deck, onNavigate, onRecordQuiz }: Props) {
       </div>
 
       <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5 mb-8">
-        <div className="bg-flash-gold h-1.5 rounded-full transition-all duration-300" style={{ width: `${progress}%` }} />
+        <div className="bg-da-primary h-1.5 rounded-full transition-all duration-300" style={{ width: `${progress}%` }} />
       </div>
 
-      <div className="p-6 bg-gradient-to-br from-flash-gold/10 to-flash-gold/5 dark:from-flash-gold/5 dark:to-transparent rounded-2xl border border-flash-gold/20 mb-6">
+      <div className="p-6 bg-gradient-to-br from-da-primary/10 to-da-primary/5 dark:from-da-primary/5 dark:to-transparent rounded-2xl border border-da-primary/20 mb-6">
         <p className="text-xl font-bold text-gray-900 dark:text-white text-center">{q.card.front}</p>
       </div>
 
       <div className="grid gap-3">
         {q.options.map((option, i) => {
-          let bg = 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 hover:border-flash-gold/50';
+          let bg = 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 hover:border-da-primary/50';
           if (showAnswer) {
             if (i === q.correctIndex) bg = 'bg-green-50 dark:bg-green-900/20 border-green-500';
             else if (i === selected) bg = 'bg-red-50 dark:bg-red-900/20 border-red-500';

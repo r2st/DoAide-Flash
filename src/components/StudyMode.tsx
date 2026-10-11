@@ -76,7 +76,7 @@ export default function StudyMode({ deck, onNavigate, onUpdateCard, onUpdateStat
     return (
       <div className="max-w-5xl mx-auto px-4 py-8 text-center">
         <p className="text-xl text-gray-500 dark:text-gray-400">No cards to study!</p>
-        <button onClick={() => onNavigate('deck', deck.id)} className="mt-4 text-flash-gold hover:text-flash-gold-dark font-semibold">
+        <button onClick={() => onNavigate('deck', deck.id)} className="mt-4 text-da-primary hover:text-da-primary-hover font-semibold">
           Back to deck
         </button>
       </div>
@@ -101,7 +101,7 @@ export default function StudyMode({ deck, onNavigate, onUpdateCard, onUpdateStat
             <p className="text-xs text-gray-500 dark:text-gray-400">Correct</p>
           </div>
           <div className="p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
-            <p className="text-2xl font-bold text-flash-gold">{accuracy}%</p>
+            <p className="text-2xl font-bold text-da-primary">{accuracy}%</p>
             <p className="text-xs text-gray-500 dark:text-gray-400">Accuracy</p>
           </div>
         </div>
@@ -109,7 +109,7 @@ export default function StudyMode({ deck, onNavigate, onUpdateCard, onUpdateStat
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <button
             onClick={() => { setIndex(0); setFlipped(false); setCorrect(0); setIncorrect(0); setDone(false); startTime.current = Date.now(); }}
-            className="flex items-center justify-center gap-2 px-6 py-3 bg-flash-gold text-gray-900 font-semibold rounded-xl hover:bg-flash-gold-dark transition-colors"
+            className="flex items-center justify-center gap-2 px-6 py-3 bg-da-primary text-white font-semibold rounded-xl hover:bg-da-primary-hover transition-colors"
           >
             <FiRotateCw className="w-4 h-4" /> Study Again
           </button>
@@ -131,7 +131,7 @@ export default function StudyMode({ deck, onNavigate, onUpdateCard, onUpdateStat
       <div className="flex items-center justify-between mb-6">
         <button
           onClick={() => onNavigate('deck', deck.id)}
-          className="flex items-center gap-2 text-gray-500 dark:text-gray-400 hover:text-flash-gold transition-colors"
+          className="flex items-center gap-2 text-gray-500 dark:text-gray-400 hover:text-da-primary transition-colors"
         >
           <FiArrowLeft className="w-4 h-4" /> Exit
         </button>
@@ -141,7 +141,7 @@ export default function StudyMode({ deck, onNavigate, onUpdateCard, onUpdateStat
       </div>
 
       <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5 mb-8">
-        <div className="bg-flash-gold h-1.5 rounded-full transition-all duration-300" style={{ width: `${progress}%` }} />
+        <div className="bg-da-primary h-1.5 rounded-full transition-all duration-300" style={{ width: `${progress}%` }} />
       </div>
 
       <div

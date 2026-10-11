@@ -38,7 +38,7 @@ export default function DeckList({ decks, onNavigate, onCreateDeck }: Props) {
       <div className="flex items-center justify-between mb-8">
         <div>
           <h1 className="text-3xl font-extrabold text-gray-900 dark:text-white">
-            Your <span className="italic text-flash-gold">Flashcards</span>
+            Your <span className="italic text-da-primary">Flashcards</span>
           </h1>
           <p className="text-gray-500 dark:text-gray-400 mt-1">
             {decks.length} deck{decks.length !== 1 ? 's' : ''} &middot; {decks.reduce((a, d) => a + d.cards.length, 0)} cards
@@ -46,7 +46,7 @@ export default function DeckList({ decks, onNavigate, onCreateDeck }: Props) {
         </div>
         <button
           onClick={() => setShowCreate(!showCreate)}
-          className="flex items-center gap-2 px-4 py-2.5 bg-flash-gold text-gray-900 font-semibold rounded-xl hover:bg-flash-gold-dark transition-colors shadow-lg shadow-flash-gold/20"
+          className="flex items-center gap-2 px-4 py-2.5 bg-da-primary text-white font-semibold rounded-xl hover:bg-da-primary-hover transition-colors shadow-lg shadow-da-primary/20"
         >
           <FiPlus className="w-5 h-5" />
           <span className="hidden sm:inline">New Deck</span>
@@ -61,23 +61,23 @@ export default function DeckList({ decks, onNavigate, onCreateDeck }: Props) {
               value={title}
               onChange={e => setTitle(e.target.value)}
               placeholder="Deck title"
-              className="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-flash-gold/50"
+              className="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-da-primary/50"
               autoFocus
             />
             <input
               value={description}
               onChange={e => setDescription(e.target.value)}
               placeholder="Description (optional)"
-              className="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-flash-gold/50"
+              className="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-da-primary/50"
             />
             <input
               value={tags}
               onChange={e => setTags(e.target.value)}
               placeholder="Tags (comma-separated)"
-              className="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-flash-gold/50"
+              className="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-da-primary/50"
             />
             <div className="flex gap-3">
-              <button type="submit" className="px-6 py-2.5 bg-flash-gold text-gray-900 font-semibold rounded-xl hover:bg-flash-gold-dark transition-colors">
+              <button type="submit" className="px-6 py-2.5 bg-da-primary text-white font-semibold rounded-xl hover:bg-da-primary-hover transition-colors">
                 Create
               </button>
               <button type="button" onClick={() => setShowCreate(false)} className="px-6 py-2.5 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
@@ -115,9 +115,9 @@ function DeckCard({ deck, onClick }: { deck: Deck; onClick: () => void }) {
   return (
     <button
       onClick={onClick}
-      className="text-left p-5 bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 hover:border-flash-gold/50 hover:shadow-lg hover:shadow-flash-gold/5 transition-all group"
+      className="text-left p-5 bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 hover:border-da-primary/50 hover:shadow-lg hover:shadow-da-primary/5 transition-all group"
     >
-      <h3 className="font-bold text-gray-900 dark:text-white group-hover:text-flash-gold transition-colors truncate">
+      <h3 className="font-bold text-gray-900 dark:text-white group-hover:text-da-primary transition-colors truncate">
         {deck.title}
       </h3>
       {deck.description && (
@@ -126,7 +126,7 @@ function DeckCard({ deck, onClick }: { deck: Deck; onClick: () => void }) {
       <div className="flex items-center gap-4 mt-3 text-xs text-gray-400 dark:text-gray-500">
         <span className="flex items-center gap-1"><FiBook className="w-3.5 h-3.5" /> {deck.cards.length} cards</span>
         {due > 0 && (
-          <span className="flex items-center gap-1 text-flash-gold font-medium"><FiClock className="w-3.5 h-3.5" /> {due} due</span>
+          <span className="flex items-center gap-1 text-da-primary font-medium"><FiClock className="w-3.5 h-3.5" /> {due} due</span>
         )}
       </div>
       {deck.tags.length > 0 && (

@@ -5,9 +5,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        flash: {
-          gold: '#F0B429',
-          'gold-dark': '#D4991A',
+        da: {
+          primary: '#0D9488',
+          'primary-hover': '#0F766E',
+          bg: '#FFFFFF',
+          surface: '#F8FFFE',
+          text: '#1E293B',
         },
       },
       fontFamily: {

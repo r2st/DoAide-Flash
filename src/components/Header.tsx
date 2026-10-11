@@ -13,10 +13,13 @@ export default function Header({ theme, page, onToggleTheme, onNavigate }: Props
     <header className="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
       <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
         <button onClick={() => onNavigate('home')} className="flex items-center gap-1.5 group">
-          <span className="text-xl font-extrabold text-gray-900 dark:text-white group-hover:text-flash-gold transition-colors">
+          <span className="text-xl font-extrabold text-da-primary">
             DoAide
           </span>
-          <span className="text-xl font-extrabold italic text-flash-gold">Flash</span>
+          <span className="text-xl font-extrabold text-gray-400 dark:text-gray-500">|</span>
+          <span className="text-xl font-extrabold text-gray-900 dark:text-white group-hover:text-da-primary transition-colors">
+            Flash
+          </span>
         </button>
 
         <nav className="flex items-center gap-1">
@@ -54,7 +57,7 @@ function NavBtn({ active, onClick, label, children }: {
       aria-label={label}
       className={`p-2 rounded-lg transition-colors ${
         active
-          ? 'bg-flash-gold/10 text-flash-gold'
+          ? 'bg-da-primary/10 text-da-primary'
           : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800'
       }`}
     >

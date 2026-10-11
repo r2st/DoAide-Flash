@@ -85,7 +85,7 @@ export default function DeckView({ deck, onNavigate, onAddCard, onDeleteCard, on
     <div className="max-w-5xl mx-auto px-4 py-8">
       <button
         onClick={() => onNavigate('home')}
-        className="flex items-center gap-2 text-gray-500 dark:text-gray-400 hover:text-flash-gold transition-colors mb-6"
+        className="flex items-center gap-2 text-gray-500 dark:text-gray-400 hover:text-da-primary transition-colors mb-6"
       >
         <FiArrowLeft className="w-4 h-4" /> Back to decks
       </button>
@@ -103,20 +103,20 @@ export default function DeckView({ deck, onNavigate, onAddCard, onDeleteCard, on
           <button
             onClick={() => onNavigate('study', deck.id)}
             disabled={deck.cards.length === 0}
-            className="flex items-center gap-2 px-4 py-2.5 bg-flash-gold text-gray-900 font-semibold rounded-xl hover:bg-flash-gold-dark transition-colors disabled:opacity-40 disabled:cursor-not-allowed shadow-lg shadow-flash-gold/20"
+            className="flex items-center gap-2 px-4 py-2.5 bg-da-primary text-white font-semibold rounded-xl hover:bg-da-primary-hover transition-colors disabled:opacity-40 disabled:cursor-not-allowed shadow-lg shadow-da-primary/20"
           >
             <FiPlay className="w-4 h-4" /> Study
           </button>
           <button
             onClick={() => onNavigate('quiz', deck.id)}
             disabled={deck.cards.length < 4}
-            className="flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 font-semibold rounded-xl border border-gray-200 dark:border-gray-700 hover:border-flash-gold/50 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+            className="flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 font-semibold rounded-xl border border-gray-200 dark:border-gray-700 hover:border-da-primary/50 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
           >
             <FiHelpCircle className="w-4 h-4" /> Quiz
           </button>
           <button
             onClick={() => setShowShare(!showShare)}
-            className="flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 font-semibold rounded-xl border border-gray-200 dark:border-gray-700 hover:border-flash-gold/50 transition-colors"
+            className="flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 font-semibold rounded-xl border border-gray-200 dark:border-gray-700 hover:border-da-primary/50 transition-colors"
           >
             <FiShare2 className="w-4 h-4" /> Share
           </button>
@@ -161,7 +161,7 @@ export default function DeckView({ deck, onNavigate, onAddCard, onDeleteCard, on
         <div className="mb-8">
           <button
             onClick={() => setShowAddCard(!showAddCard)}
-            className="flex items-center gap-2 text-flash-gold font-semibold hover:text-flash-gold-dark transition-colors"
+            className="flex items-center gap-2 text-da-primary font-semibold hover:text-da-primary-hover transition-colors"
           >
             <FiPlus className="w-4 h-4" /> Add Card
           </button>
@@ -172,22 +172,22 @@ export default function DeckView({ deck, onNavigate, onAddCard, onDeleteCard, on
                 value={front}
                 onChange={e => setFront(e.target.value)}
                 placeholder="Front (question)"
-                className="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-flash-gold/50"
+                className="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-da-primary/50"
                 autoFocus
               />
               <input
                 value={back}
                 onChange={e => setBack(e.target.value)}
                 placeholder="Back (answer)"
-                className="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-flash-gold/50"
+                className="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-da-primary/50"
               />
               <input
                 value={category}
                 onChange={e => setCategory(e.target.value)}
                 placeholder="Category (optional)"
-                className="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-flash-gold/50"
+                className="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-da-primary/50"
               />
-              <button type="submit" className="px-6 py-2.5 bg-flash-gold text-gray-900 font-semibold rounded-xl hover:bg-flash-gold-dark transition-colors">
+              <button type="submit" className="px-6 py-2.5 bg-da-primary text-white font-semibold rounded-xl hover:bg-da-primary-hover transition-colors">
                 Add Card
               </button>
             </form>
@@ -207,15 +207,15 @@ export default function DeckView({ deck, onNavigate, onAddCard, onDeleteCard, on
                 <input
                   value={editFront}
                   onChange={e => setEditFront(e.target.value)}
-                  className="w-full px-3 py-2 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-flash-gold/50"
+                  className="w-full px-3 py-2 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-da-primary/50"
                 />
                 <input
                   value={editBack}
                   onChange={e => setEditBack(e.target.value)}
-                  className="w-full px-3 py-2 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-flash-gold/50"
+                  className="w-full px-3 py-2 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-da-primary/50"
                 />
                 <div className="flex gap-2">
-                  <button onClick={() => saveEditCard(card.id)} className="text-xs px-3 py-1 bg-flash-gold text-gray-900 rounded-lg font-medium">Save</button>
+                  <button onClick={() => saveEditCard(card.id)} className="text-xs px-3 py-1 bg-da-primary text-white rounded-lg font-medium">Save</button>
                   <button onClick={() => setEditingCard(null)} className="text-xs px-3 py-1 text-gray-500 hover:text-gray-700 dark:text-gray-400">Cancel</button>
                 </div>
               </div>
@@ -230,7 +230,7 @@ export default function DeckView({ deck, onNavigate, onAddCard, onDeleteCard, on
             )}
             {!deck.isBuiltIn && editingCard !== card.id && (
               <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                <button onClick={() => startEditCard(card)} className="p-1.5 text-gray-400 hover:text-flash-gold transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                <button onClick={() => startEditCard(card)} className="p-1.5 text-gray-400 hover:text-da-primary transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
                   <FiEdit2 className="w-3.5 h-3.5" />
                 </button>
                 <button onClick={() => onDeleteCard(deck.id, card.id)} className="p-1.5 text-gray-400 hover:text-red-500 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">

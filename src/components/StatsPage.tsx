@@ -29,13 +29,13 @@ export default function StatsPage({ stats }: Props) {
       <div className="flex items-center justify-between mb-8">
         <div>
           <h1 className="text-3xl font-extrabold text-gray-900 dark:text-white">
-            Your <span className="italic text-flash-gold">Stats</span>
+            Your <span className="italic text-da-primary">Stats</span>
           </h1>
           <p className="text-gray-500 dark:text-gray-400 mt-1">Track your study progress</p>
         </div>
         <button
           onClick={handleShareStats}
-          className="flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 font-semibold rounded-xl border border-gray-200 dark:border-gray-700 hover:border-flash-gold/50 transition-colors"
+          className="flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 font-semibold rounded-xl border border-gray-200 dark:border-gray-700 hover:border-da-primary/50 transition-colors"
         >
           {copied ? <FiCheckCircle className="w-4 h-4 text-green-500" /> : <FiShare2 className="w-4 h-4" />}
           {copied ? 'Copied!' : 'Share Stats'}
@@ -45,16 +45,16 @@ export default function StatsPage({ stats }: Props) {
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
         <StatCard icon={<FiTarget className="w-5 h-5" />} label="Cards Studied" value={stats.totalCardsStudied.toString()} color="text-blue-500" />
         <StatCard icon={<FiTrendingUp className="w-5 h-5" />} label="Accuracy" value={`${accuracy}%`} color="text-green-500" />
-        <StatCard icon={<FiZap className="w-5 h-5" />} label="Current Streak" value={`${stats.currentStreak} day${stats.currentStreak !== 1 ? 's' : ''}`} color="text-flash-gold" />
+        <StatCard icon={<FiZap className="w-5 h-5" />} label="Current Streak" value={`${stats.currentStreak} day${stats.currentStreak !== 1 ? 's' : ''}`} color="text-da-primary" />
         <StatCard icon={<FiAward className="w-5 h-5" />} label="Longest Streak" value={`${stats.longestStreak} day${stats.longestStreak !== 1 ? 's' : ''}`} color="text-purple-500" />
         <StatCard icon={<FiClock className="w-5 h-5" />} label="Study Time" value={`${studyMinutes} min`} color="text-orange-500" />
         <StatCard icon={<FiCheckCircle className="w-5 h-5" />} label="Correct" value={stats.totalCorrect.toString()} color="text-green-500" />
         <StatCard icon={<FiCopy className="w-5 h-5" />} label="Quizzes Taken" value={stats.quizzesTaken.toString()} color="text-indigo-500" />
-        <StatCard icon={<FiAward className="w-5 h-5" />} label="Best Quiz Score" value={`${stats.quizBestScore}%`} color="text-flash-gold" />
+        <StatCard icon={<FiAward className="w-5 h-5" />} label="Best Quiz Score" value={`${stats.quizBestScore}%`} color="text-da-primary" />
       </div>
 
       {stats.currentStreak > 0 && (
-        <div className="p-6 bg-gradient-to-r from-flash-gold/10 to-flash-gold/5 dark:from-flash-gold/5 dark:to-transparent rounded-2xl border border-flash-gold/20">
+        <div className="p-6 bg-gradient-to-r from-da-primary/10 to-da-primary/5 dark:from-da-primary/5 dark:to-transparent rounded-2xl border border-da-primary/20">
           <div className="flex items-center gap-3 mb-2">
             <span className="text-3xl">🔥</span>
             <div>
@@ -70,7 +70,7 @@ export default function StatsPage({ stats }: Props) {
             {Array.from({ length: Math.min(stats.currentStreak, 30) }).map((_, i) => (
               <div
                 key={i}
-                className="flex-1 h-2 rounded-full bg-flash-gold"
+                className="flex-1 h-2 rounded-full bg-da-primary"
                 style={{ opacity: 0.3 + (i / Math.min(stats.currentStreak, 30)) * 0.7 }}
               />
             ))}
