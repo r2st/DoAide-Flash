@@ -4,12 +4,24 @@ import { premadeDecks } from '../data/premadeDecks';
 import type { Card, Deck, Page, Stats } from '../lib/types';
 import { loadDecks, loadStats, loadTheme, saveDecks, saveStats, saveTheme } from '../lib/storage';
 import { decodeDeck } from '../lib/share';
+import { applyRouteMeta, getRouteMeta } from '../lib/routeMeta';
+
+/** Map URL pathname → Page. Unknown paths fall back to 'home'. */
+function pathToPage(pathname: string): Page {
+  const p = pathname.replace(/\/+$/, '') || '/';
+  switch (p) {
+    case '/': return 'home';
+    case '/stats': return 'stats';
+    case '/import': return 'import';
+    default: return 'home';
+  }
+}
 
 export function useFlash() {
   const [decks, setDecks] = useState<Deck[]>([]);
   const [stats, setStats] = useState<Stats>(loadStats());
   const [theme, setThemeState] = useState<'light' | 'dark'>(loadTheme());
-  const [page, setPage] = useState<Page>('home');
+  const [page, setPage] = useState<Page>(() => pathToPage(window.location.pathname));
   const [activeDeckId, setActiveDeckId] = useState<string | null>(null);
 
   useEffect(() => {
@@ -60,6 +72,11 @@ export function useFlash() {
     document.documentElement.classList.toggle('dark', theme === 'dark');
     saveTheme(theme);
   }, [theme]);
+
+  // Update <head> meta tags whenever the page changes
+  useEffect(() => {
+    applyRouteMeta(page);
+  }, [page]);
 
   const toggleTheme = useCallback(() => {
     setThemeState(prev => prev === 'dark' ? 'light' : 'dark');
@@ -173,11 +190,23 @@ export function useFlash() {
     });
   }, [stats, persistStats]);
 
+  // Sync page state on browser back/forward
+  useEffect(() => {
+    const onPop = () => setPage(pathToPage(window.location.pathname));
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
+  }, []);
+
   const activeDeck = decks.find(d => d.id === activeDeckId) || null;
 
   const navigate = useCallback((p: Page, deckId?: string) => {
     setPage(p);
     if (deckId !== undefined) setActiveDeckId(deckId);
+    // Push to browser history for indexable pages
+    const meta = getRouteMeta(p);
+    if (window.location.pathname !== meta.path) {
+      window.history.pushState(null, '', meta.path);
+    }
   }, []);
 
   return {
