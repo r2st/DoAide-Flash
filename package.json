@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && node scripts/prerender-routes.mjs",
+    "build": "tsc -b && vite build && node scripts/prerender-routes.mjs && node scripts/add-crawler-h1.mjs",
     "lint": "oxlint",
     "preview": "vite preview"
   },
